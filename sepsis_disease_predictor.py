@@ -1,9 +1,7 @@
 import streamlit as st
 import joblib
-import numpy as np
 import pandas as pd
 from PIL import Image
-from statsmodels.sandbox.tsa.example_arma import pltacorr
 
 # 允许加载高分辨率图片
 Image.MAX_IMAGE_PIXELS = None
@@ -36,22 +34,23 @@ selected_models = st.sidebar.multiselect("Select models to use for prediction", 
 # Input fields for the features
 st.sidebar.header("Enter the following feature values:")
 age = st.sidebar.number_input("Age", min_value=18.0, max_value=90.0, value=50.0)
+mapp = st.sidebar.number_input("Mean Arterial Pressure", min_value=0.0, max_value=200.0, value=80.0)
+temp = st.sidebar.number_input("Body Temperature", min_value=30.0, max_value=42.0, value=36.5)
+rdw = st.sidebar.number_input("Red Blood Cell Distribution Width", min_value=0.0, max_value=25.0, value=13.0)
+bun = st.sidebar.number_input("Blood Urea Nitrogen", min_value=0.0, max_value=200.0, value=13.5)
 wbc = st.sidebar.number_input("White Blood Cell Count", min_value=0.0, max_value=100.0, value=7.5)
 pltt = st.sidebar.number_input("Platelets", min_value=0.0, max_value=700.0, value=275.0)
-bun = st.sidebar.number_input("Blood Urea Nitrogen", min_value=0.0, max_value=200.0, value=13.5)
-temp = st.sidebar.number_input("Body Temperature", min_value=30.0, max_value=42.0, value=36.5)
-mapp = st.sidebar.number_input("Mean Arterial Pressure", min_value=0.0, max_value=200.0, value=80.0)
-rdw = st.sidebar.number_input("Red Blood Cell Distribution Width", min_value=0.0, max_value=25.0, value=13.0)
+
 
 # Convert inputs to DataFrame for model prediction
 input_data = pd.DataFrame({
     'Age': [age],
+    'MAP': [mapp],
+    'Temp': [temp],
+    'RDW': [rdw],
+    'BUN': [bun],
     'WBC': [wbc],
     'PLT': [pltt],
-    'BUN': [bun],
-    'Temp': [temp],
-    'MAP': [mapp],
-    'RDW': [rdw],
 })
 
 # Add a predict button
