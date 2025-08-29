@@ -74,8 +74,8 @@ if st.sidebar.button("Predict"):
 # Display PNG images
 st.subheader("1. Radar chart of the performance of each model in the training set")
 image1 = Image.open("Training Set Metrics.png")
-st.image(image1, caption="Radar chart of the performance of each model in the training set", use_column_width=True)
+st.image(image1, caption="Radar chart of the performance of each model in the training set", use_container_width=True)
 
 st.subheader("2. Radar chart of the performance of each model in the test set")
 image2 = Image.open("Test Set Metrics.png")
-st.image(image2, caption="Radar chart of the performance of each model in the test set", use_column_width=True)
+st.image(image2, caption="Radar chart of the performance of each model in the test set", use_container_width=True)
