@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import pandas as pd
+import numpy as np
 from PIL import Image
 
 # 允许加载高分辨率图片
