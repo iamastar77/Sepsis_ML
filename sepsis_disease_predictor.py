@@ -10,13 +10,13 @@ Image.MAX_IMAGE_PIXELS = None
 # Load the models
 RF = joblib.load('rf.pkl')
 LR = joblib.load('log_reg.pkl')
-LightGBM = joblib.load('lgb.pkl')
+LightGBMM = joblib.load('lgb.pkl')
 
 # Model dictionary
 models = {
     'Random Forest': RF,
     'Logistic Regression': LR,
-    'LightGBM': LightGBM
+    'LightGBM': LightGBMM
 }
 
 # Title
@@ -51,7 +51,7 @@ input_data = pd.DataFrame({
     'RDW': [rdw],
     'BUN': [bun],
     'WBC': [wbc],
-    'PLT': [pltt],
+    'PLT': [pltt]
 })
 
 # Add a predict button
