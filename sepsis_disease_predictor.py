@@ -42,7 +42,8 @@ bun = st.sidebar.number_input("Blood Urea Nitrogen", min_value=0.0, max_value=20
 wbc = st.sidebar.number_input("White Blood Cell Count", min_value=0.0, max_value=100.0, value=7.5)
 pltt = st.sidebar.number_input("Platelets", min_value=0.0, max_value=700.0, value=275.0)
 
-
+# 与训练时一致的顺序
+FEATURE_ORDER = ['Age', 'WBC', 'PLT', 'BUN', 'Temp', 'MAP', 'RDW']
 # Convert inputs to DataFrame for model prediction
 input_data = pd.DataFrame({
     'Age': [age],
@@ -52,7 +53,8 @@ input_data = pd.DataFrame({
     'BUN': [bun],
     'WBC': [wbc],
     'PLT': [pltt]
-})
+    },
+    columns=FEATURE_ORDER)
 
 # Add a predict button
 if st.sidebar.button("Predict"):
